@@ -1,0 +1,1 @@
+This is my SCOPE (MVP - smallest version of my work, but still looks like a proper system. These will be the only things that im building, which will sow that my FYP is full functional for what I was trying to achieve)
