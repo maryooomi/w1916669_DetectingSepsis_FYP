@@ -1,3 +1,27 @@
+# macOS nonsense
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# virtual envs
+.venv/
+venv/
+env/
+
+# secrets (do NOT commit these)
+.env
+kaggle.json
+
+# data you shouldn't commit (keep your small results CSV though)
+data/raw/
+data/processed/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
