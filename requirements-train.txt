@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+joblib
+matplotlib
+pyarrow
+shap
+kagglehub
+jupyter
+ipykernel

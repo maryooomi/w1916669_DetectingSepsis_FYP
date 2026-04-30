@@ -2,63 +2,88 @@
 
 Final Year Project – Maryam Chaudhry (w1916669)
 
-This project builds a machine learning system to **predict sepsis early in ICU patients** using vital signs and laboratory data.
+This project is an ICU sepsis early-warning prototype and uses machine learning to estimate whether a patient may be at risk of developing sepsis within the next 6 hours, then displays the prediction through a Streamlit dashboard.
 
-The system includes:
-
-- A trained machine learning model (Random Forest / Logistic Regression)
-- Early warning risk predictions
-- SHAP explanations showing why a patient is flagged
-- A Streamlit dashboard for clinicians, managers, and admins
+The aim is not to replace clinical judgement or diagnose sepsis by itself. The system is a prototype designed to demonstrate early-warning prediction, explainability, threshold control and audit logging.
 
 ---
 
-# Run the Streamlit App
+## Main Features
 
-Install dependencies:
-
-pip install -r requirements.txt
-
-
-Run the dashboard:
-
-
-streamlit run streamlit_app/app.py
-
-
----
-
-# Demo Accounts
-
-**Clinician**
-
-email: clinician@icu.local  
-password: clinician123  
-
-**Admin**
-
-email: admin@icu.local  
-password: admin123  
-
-**Manager**
-
-email: manager@icu.local  
-password: manager123  
+- Machine learning pipeline for six-hour sepsis early-warning prediction
+- A final saved model bundle using Random Forest, with Logistic Regression used as a baseline
+- Patient-level train, validation and test splitting to reduce data leakage
+- Amber and red alert thresholds
+- Alert hygiene rules, including consecutive-hit logic and cooldown
+- SHAP-based local explanations for flagged patients
+- Streamlit dashboard with three user roles:
+  - Clinician
+  - Admin
+  - Manager
+- Patient search, risk score display, risk trend and latest vitals
+- Threshold adjustment page for admins
+- Manager performance page with confusion matrix views
+- CSV-based prototype audit log for logins, acknowledgements and threshold changes
 
 ---
 
-# Repository Structure
+## Repository Structure
+
+```text
+
+data/
+
+    Demo data, saved test evaluation files, model results and threshold/audit files.
+
+models/
+
+    Saved trained model bundle used by the Streamlit app.
+
+notebooks/
+
+    Training and experimentation notebook.
+
+src/
+
+    Supporting model/service utilities.
+
+streamlit_app/
+
+    Streamlit dashboard application.
+
+requirements.txt
+
+    Packages needed to run the Streamlit dashboard.
+
+requirements-train.txt
+
+    Packages needed to run the training notebook.
+
+README.md
+
+    Project instructions and overview.
+
+SCOPE.md
+
+    Project scope and boundary notes.
+
+    ## Troubleshooting
+
+If VS Code shows yellow squiggly lines under imports such as `streamlit`, `shap`, `pandas` or `sklearn`, it usually means VS Code is using the wrong Python interpreter or the dependencies have not been installed in the active environment.
+
+To fix this, select the project virtual environment in VS Code:
+
+```text
+Python: Select Interpreter
 
 
-data/ demo dataset used by the dashboard
-models/ trained ML model bundle
-notebooks/ experimentation notebooks
-src/ model and preprocessing utilities
-streamlit_app/ Streamlit dashboard code
+## Also check this before pushing
 
+Your `.venv` folder is visible in VS Code. That is fine locally, but do **not** upload it to GitHub. Your `.gitignore` should include:
 
----
-
-# Project Goal
-
-The goal is **not to diagnose sepsis after it happens**, but to **predict the risk that a patient may develop sepsis within the next 6 hours**, giving clinicians time to intervene earlier.
+```gitignore
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store

@@ -1,0 +1,15 @@
+{
+  "selection_split": "VAL",
+  "force_model": null,
+  "primary_metric": "VAL_PR_AUC",
+  "primary_metric_reason": "Target is highly imbalanced, so PR-AUC is more informative than accuracy.",
+  "secondary_metric": "VAL_recall_red_raw at precision >= 0.20",
+  "tie_breaker": "patient-level RED precision with hygiene, then simpler model",
+  "selected_model": "Random Forest",
+  "selected_model_key": "rf",
+  "selection_reason": "validation PR-AUC within \u00b10.001; selected by higher RED-threshold recall, then higher patient-level RED precision, then simpler model",
+  "selected_VAL_PR_AUC": 0.021848622995342917,
+  "selected_VAL_ROC_AUC": 0.6446749101657753,
+  "selected_thr_amber": 0.16326219395456978,
+  "selected_thr_red": 0.7068554422150115
+}
