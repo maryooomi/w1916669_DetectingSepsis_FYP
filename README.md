@@ -81,6 +81,8 @@ The `active_thresholds.json` file is optional. It is only used after an admin ha
 
 ## How to Run the Streamlit App
 
+Recommended Python version: Python 3.11
+
 Run these commands from the project root folder.
 
 ### Step 1: Open the project folder in VS Code
